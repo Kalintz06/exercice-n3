@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root">
+      <h1>Formulaire d'inscription</h1>
+      <form @submit.prevent="submitForm">
+        <div>
+          Votre Pseudo
+          <input type="text" v-model="votrePseudo" :class="verifPseudo" />
+          <p id="true" v-show="verifPseudo">Pseudo valide</p>
+          <p id="false" v-show="!verifPseudo">Attention Pseudo invalide</p>
+        </div>
+        <div>
+          Mot de Passe
+          <input type="text" v-model="MotDePasse" :class="verifMdp" />
+          <p id="true" v-show="verifMdp">Mot de passe valide</p>
+          <p id="false" v-show="!verifMdp">Attention mot de passe invalide</p>
+        </div>
+        <div>
+          date de naissance
+          <input type="date" v-show="dateUtilisateur" :class="verifDate" />
+        </div>
+      </form>
+      <button @click="validationDuFormulaire">Valider</button>
+    </div>
+  </body>
+</html>
